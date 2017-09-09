@@ -30,4 +30,4 @@ plt.colorbar()
 
 plt.savefig("plots/correlation-matrix/" + dataset_name + ".png")
 
-plt.show()
+# plt.show()
