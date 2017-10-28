@@ -15,23 +15,19 @@ from statsmodels.graphics.tsaplots import plot_acf
 # get dataset info from arguments
 dataset_path = sys.argv[1]
 dataset_name = ntpath.basename(dataset_path).split(".")[0]
-
 print("Dataset: ", dataset_name)
+
+columns_ids = list(map(lambda x: int(x), sys.argv[2].split(',')))
+print("Columns: ", columns_ids)
 
 # import dataset as panda dataframe
 df = pd.DataFrame.from_csv(dataset_path)
 print("Shape: ", df.shape)
 print("Columns: ", df.columns)
 
-column_index = 0
-
-x = df.as_matrix(columns=df.columns[column_index:column_index + 1])
-
-test = pd.DataFrame(x)
-test.plot()
-
-plot_acf(x)
+for columns_id in columns_ids:
+    x = df.as_matrix(columns=df.columns[columns_id:columns_id + 1])
+    fig = plot_acf(x)
+    fig.suptitle(df.columns[columns_id] + " Autocorrelation")
 
 plt.show()
-
-# plt.savefig("plots/autocorrelation/" + dataset_name + "-" + df.columns[column_index] + ".png")
