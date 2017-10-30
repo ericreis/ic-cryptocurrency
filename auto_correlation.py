@@ -26,7 +26,8 @@ print("Shape: ", df.shape)
 print("Columns: ", df.columns)
 
 for columns_id in columns_ids:
-    x = df.as_matrix(columns=df.columns[columns_id:columns_id + 1])
+    # x = df.as_matrix(columns=df.columns[columns_id:columns_id + 1])
+    x = df[df.columns[columns_id]].values
     fig = plot_acf(x)
     fig.suptitle(df.columns[columns_id] + " Autocorrelation")
 
