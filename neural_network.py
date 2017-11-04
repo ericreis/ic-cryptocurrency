@@ -33,7 +33,7 @@ with open("data/btc_dataset_sample.csv", "r") as btc_dataset:
 
 n = buildNetwork(ds.indim, 1000, ds.outdim, recurrent=True)
 t = BackpropTrainer(n, learningrate=0.001, momentum=0, verbose=True)
-t.trainUntilConvergence(ds, 10000)
+t.trainUntilConvergence(ds, 200)
 t.testOnData(verbose=False)
 
 fileObject = open('bpnn', 'w')
