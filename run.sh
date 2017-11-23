@@ -25,4 +25,13 @@ elif [ "$1" == "all" ] || [ "$1" == "arma" ]; then
     echo 'running arma for 800 to 1250'
     python3 arma.py 800,1200 1201,1250
     
+elif [ "$1" == "all" ] || [ "$1" == "repeat_last" ]; then
+    # ARIMA
+    echo 'running repeat_last for 0 to 600'
+    python3 repeat_last.py 0,550 551,600
+    echo 'running repeat_last for 600 to 1200'
+    python3 repeat_last.py 600,1150 1151,1200
+    echo 'running repeat_last for 800 to 1250'
+    python3 repeat_last.py 800,1200 1201,1250
+
 fi
