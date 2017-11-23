@@ -24,6 +24,9 @@ print("Columns: ", df.columns)
 
 x = df["btc_market_price(t)"].values
 
+# for i in range(len(x)):
+#     x[i] = math.log(x[i])
+
 price_df = pd.DataFrame(x)
 price_df.plot()
 
